@@ -6,5 +6,3 @@ img.src = sampleImage;
 document.body.appendChild(img);
 
 console.log ('test')
-
-

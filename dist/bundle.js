@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/images/SampleIcon.png */ \"./src/assets/images/SampleIcon.png\");\n\n\n\nconst img = new Image();\nimg.src = _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\ndocument.body.appendChild(img);\n\nconsole.log ('test')\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/images/SampleIcon.png */ \"./src/assets/images/SampleIcon.png\");\n\n\n\nconst img = new Image();\nimg.src = _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\ndocument.body.appendChild(img);\n\nconsole.log ('test')\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 
