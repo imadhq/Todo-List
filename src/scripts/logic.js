@@ -52,7 +52,7 @@ export class Task {
     this.priority = priority
   }
 
-  editInfo(name, description, dueDate, priority) {
+  editTaskInfo(name, description, dueDate, priority) {
     this.name = name;
     this.description = description;
     this.dueDate = dueDate;

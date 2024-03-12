@@ -30,7 +30,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px solid black;
-  margin-bottom: 1px;
+  border-bottom: 1px solid grey;
 }
 
+.low-priority {
+  border-left: 10px solid green;
+}
+
+.medium-priority {
+  border-left: 10px solid yellow;
+}
+
+.high-priority {
+  border-left: 10px solid red;
+}

@@ -1,80 +1,12 @@
-// import './styles/styles.css';
-// import { projectManager, Project, Task } from './scripts/logic.js';
-
-// let currentProject = defaultProject;
-
-// function renderProjectList() {
-
-//   const projectContainer = document.getElementById('project-container');
-
-//   projectManager.allProjects.forEach((project, index) => {
-//     const div = document.createElement('div');
-//     div.classList.add('project-div');
-//     div.textContent = project.name;
-  
-//     const btn = document.createElement('button');
-//     btn.classList.add('project-delete-button');
-//     btn.textContent = 'Delete';
-  
-//     div.appendChild(btn);
-//     projectContainer.appendChild(div);
-  
-//     btn.addEventListener('click', () => {
-//       if (index !== 0) {
-//         projectManager.deleteProject(project);
-//         div.remove();
-//       } else {
-//         alert("Default project cannot be deleted.");
-//       }
-//     });
-//   })
-
-//   const createProjectButton = document.createElement('button');
-//   createProjectButton.textContent = 'New Project';
-//   createProjectButton.classList.add('create-new-project');
-//   projectContainer.appendChild(createProjectButton);
-// }
-
-// renderProjectList();
-
-// function renderTasks() {
-//   currentProject.taskList.forEach((task) => {
-//     const div = document.createElement('div');
-//     div.classList.add('task-div');
-//     div.textContent = task.name;
-  
-//     const btn = document.createElement('button');
-//     btn.classList.add('task-delete-button');
-//     btn.textContent = 'Delete';
-  
-//     document.body.appendChild(div);
-//     div.appendChild(btn);
-  
-//     btn.addEventListener('click', () => {
-//       currentProject.deleteTask(task);
-//       div.remove();
-//     });
-//   })
-// }
 
 import './styles/styles.css';
 import { projectManager, Project, Task } from './scripts/logic.js';
 
 const defaultProject = projectManager.createProject('Tasks');
-const task1 = new Task('Eat', 'desc', '07/04/23', 'high prio');
-const task2 = new Task('Play', 'desc', '06/04/22', 'med prio');
+const task1 = new Task('Eat', 'desc', '2024-03-21', 'high');
+const task2 = new Task('Play', 'desc', '2024-04-15', 'medium');
 defaultProject.addTask(task1);
 defaultProject.addTask(task2);
-
-
-const proejct2 = projectManager.createProject('proejct 2');
-const task4 = new Task('sleep', 'desc', '07/0sdfsdf23', 'high prio');
-const task5 = new Task('Pldsdasdasy', 'desc', '06/04/22', 'med prio');
-proejct2.addTask(task4);
-proejct2.addTask(task5);
-const proejct3 = projectManager.createProject('proejct 3');
-const proejct4 = projectManager.createProject('proejct 4');
-
 
 let currentProject = defaultProject;
 
@@ -101,18 +33,15 @@ const renderProjectList = () => {
     span.addEventListener('click', ()=> {
       currentProject = project;
       renderTaskList();
-      console.log(`${currentProject.name} is the current project`)
     })
 
-    // DELETE PROJECT FROM PROJECT CONTAINER
+    // DELETE PROJECT FROM PROJECT LIST
     btn.addEventListener('click', ()=> {
       if (index !== 0) {
         projectManager.deleteProject(project);
         currentProject = defaultProject;
         renderProjectList();
         renderTaskList();
-        console.log(`${currentProject.name} is the current project`)
-
       } else {
         alert("Default project cannot be deleted.");
       }
@@ -128,7 +57,7 @@ const renderTaskList = () => {
     const div = document.createElement('div');
     div.classList.add('task-item');
     div.innerHTML = `
-    <button class = 'task-complete-button'>X</button>
+    <button class = 'task-complete-button'></button>
     ${task.name}
     <button class = 'task-details-button'>Details</button>
     <button class = 'edit-task-button'>Edit</button>
@@ -136,15 +65,107 @@ const renderTaskList = () => {
     <button class = 'delete-task-button'>Delete</button>
     `;
 
+    if (task.priority === 'low') {
+      div.classList.add('low-priority')
+    } else if (task.priority === 'medium') {
+      div.classList.add('medium-priority')
+    } else if (task.priority === 'high') {
+      div.classList.add('high-priority')
+    }
+
     taskListContainer.appendChild(div);
 
+    // DELETE TASK FROM TASKLIST
     const deleteTaskbutton = div.querySelector('.delete-task-button');
     deleteTaskbutton.addEventListener('click', () => {
       currentProject.deleteTask(task);
       renderTaskList();
-      console.log('clicked')
     })
+
+    // EDIT TASK
+    const editTaskButton = div.querySelector('.edit-task-button');
+    editTaskButton.addEventListener('click', () => {
+      openEditModal(task);
+    });
   })
+}
+
+const openEditModal = (task) => {
+  const modal = createModal(task);
+  modal.showModal();
+
+  const applyChangesButton = modal.querySelector('.js-add-task');
+  applyChangesButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    editTask(task, modal);
+    clearInputFields(modal);
+    modal.close();
+    renderTaskList();
+  });
+}
+
+const createModal = (task) => {
+  const modal  = document.createElement('dialog');
+  modal.classList.add('jsmodal');
+  
+  modal.innerHTML = `
+  <form>
+    <p><label for="task-title">Title:</label></p>
+    <input type="text" id="task-title" class="text-input" value="${task.name}">
+
+    <p><label for="task-description">Description:</label></p>
+    <input type="text" id="task-description" class="text-input" value="${task.description}">
+
+    <p><label for="due-date">Due Date:</label></p>
+    <input type="date" id="due-date" class="due-date-input" value="${task.dueDate}">
+
+    <p>Priority:</p>
+    <label>
+      Low
+      <input type="radio" name="priority" id="low-priority-radio" value="low" ${task.priority === 'low' ? 'checked' : ''}> 
+    </label>
+
+    <label>
+      Medium
+      <input type="radio" name="priority" id="medium-priority-radio" value="medium" ${task.priority === 'medium' ? 'checked' : ''}> 
+    </label>
+
+    <label>
+      High
+      <input type="radio" name="priority" id="high-priority-radio" value="high" ${task.priority === 'high' ? 'checked' : ''}> 
+    </label>
+
+    <p class="dialog-button-section">
+    <button class="cancel-button dialog-btn">Cancel</button>
+    <button class="js-add-task dialog-btn">Save</button>
+    </p>
+  </form>
+  `
+  document.body.appendChild(modal);
+  return modal
+};
+
+function editTask(task, modal) {
+  const title = modal.querySelector('#task-title').value;
+  const description = modal.querySelector('#task-description').value;
+  const dueDate = modal.querySelector('#due-date').value;
+  const priority = modal.querySelector('input[name="priority"]:checked').value;
+
+  task.editTaskInfo(title, description, dueDate, priority);
+}
+
+function clearInputFields() {
+  const modal = document.querySelector('.jsmodal');
+  
+  const title = modal.querySelector('#task-title');
+  const description = modal.querySelector('#task-description');
+  const dueDate = modal.querySelector('#due-date');
+  const lowPriority = modal.querySelector('#low-priority-radio');
+
+  title.value = '';
+  description.value = '';
+  dueDate.value = '';
+  lowPriority.checked = true;
 }
 
 renderTaskList();
