@@ -16,7 +16,7 @@
   \*********************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `.red {\n  color: blue;\n}`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo-list/./src/styles/styles.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `body {\n  width: 100vw;\n  height: 100vh;\n  font-size: 32px;\n}\n\n.title-container {\n  display: flex;\n  justify-content: center;\n  background-color: lightpink;\n}\n\n#content {\n  display: grid;\n  grid-template-columns: 30% 70%;\n}\n\n#project-container {\n  background-color: lightgreen;\n  height: 100vh;\n}\n\n#task-container {\n  background-color: lightblue;\n  height: 100vh;\n}\n\n.task-item,\n.project-item {\n  display: flex;\n  align-items: center;\n  justify-content: space-evenly;\n  border: 1px solid black;\n  margin-bottom: 1px;\n}\n\n`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo-list/./src/styles/styles.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -110,23 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/assets/images/SampleIcon.png":
-/*!******************************************!*\
-  !*** ./src/assets/images/SampleIcon.png ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"assets/images/SampleIcon.png\");\n\n//# sourceURL=webpack://todo-list/./src/assets/images/SampleIcon.png?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/images/SampleIcon.png */ \"./src/assets/images/SampleIcon.png\");\n\n\n\nconst img = new Image();\nimg.src = _assets_images_SampleIcon_png__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\ndocument.body.appendChild(img);\n\nconsole.log ('test')\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/logic.js */ \"./src/scripts/logic.js\");\n// import './styles/styles.css';\n// import { projectManager, Project, Task } from './scripts/logic.js';\n\n// let currentProject = defaultProject;\n\n// function renderProjectList() {\n\n//   const projectContainer = document.getElementById('project-container');\n\n//   projectManager.allProjects.forEach((project, index) => {\n//     const div = document.createElement('div');\n//     div.classList.add('project-div');\n//     div.textContent = project.name;\n  \n//     const btn = document.createElement('button');\n//     btn.classList.add('project-delete-button');\n//     btn.textContent = 'Delete';\n  \n//     div.appendChild(btn);\n//     projectContainer.appendChild(div);\n  \n//     btn.addEventListener('click', () => {\n//       if (index !== 0) {\n//         projectManager.deleteProject(project);\n//         div.remove();\n//       } else {\n//         alert(\"Default project cannot be deleted.\");\n//       }\n//     });\n//   })\n\n//   const createProjectButton = document.createElement('button');\n//   createProjectButton.textContent = 'New Project';\n//   createProjectButton.classList.add('create-new-project');\n//   projectContainer.appendChild(createProjectButton);\n// }\n\n// renderProjectList();\n\n// function renderTasks() {\n//   currentProject.taskList.forEach((task) => {\n//     const div = document.createElement('div');\n//     div.classList.add('task-div');\n//     div.textContent = task.name;\n  \n//     const btn = document.createElement('button');\n//     btn.classList.add('task-delete-button');\n//     btn.textContent = 'Delete';\n  \n//     document.body.appendChild(div);\n//     div.appendChild(btn);\n  \n//     btn.addEventListener('click', () => {\n//       currentProject.deleteTask(task);\n//       div.remove();\n//     });\n//   })\n// }\n\n\n\n\nconst defaultProject = _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.createProject('Tasks');\nconst task1 = new _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.Task('Eat', 'desc', '07/04/23', 'high prio');\nconst task2 = new _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.Task('Play', 'desc', '06/04/22', 'med prio');\ndefaultProject.addTask(task1);\ndefaultProject.addTask(task2);\n\n\nconst proejct2 = _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.createProject('proejct 2');\nconst task4 = new _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.Task('sleep', 'desc', '07/0sdfsdf23', 'high prio');\nconst task5 = new _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.Task('Pldsdasdasy', 'desc', '06/04/22', 'med prio');\nproejct2.addTask(task4);\nproejct2.addTask(task5);\nconst proejct3 = _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.createProject('proejct 3');\nconst proejct4 = _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.createProject('proejct 4');\n\n\nlet currentProject = defaultProject;\n\nconst renderProjectList = () => {\n  const projectContainer = document.getElementById('project-container');\n  projectContainer.innerHTML = '';\n\n  _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.allProjects.forEach((project, index) => {\n    const div = document.createElement('div');\n    div.classList.add('project-item');\n\n    const span = document.createElement('span');\n    span.classList.add('project-name-span');\n    span.textContent = project.name;\n\n    const btn = document.createElement('button');\n    btn.classList.add('project-delete-button');\n    btn.textContent = 'Delete';\n\n    div.appendChild(span);\n    div.appendChild(btn);\n    projectContainer.appendChild(div);\n\n    span.addEventListener('click', ()=> {\n      currentProject = project;\n      renderTaskList();\n      console.log(`${currentProject.name} is the current project`)\n    })\n\n    // DELETE PROJECT FROM PROJECT CONTAINER\n    btn.addEventListener('click', ()=> {\n      if (index !== 0) {\n        _scripts_logic_js__WEBPACK_IMPORTED_MODULE_1__.projectManager.deleteProject(project);\n        currentProject = defaultProject;\n        renderProjectList();\n        renderTaskList();\n        console.log(`${currentProject.name} is the current project`)\n\n      } else {\n        alert(\"Default project cannot be deleted.\");\n      }\n    })\n  })\n}\n\nconst renderTaskList = () => {\n  const taskListContainer = document.getElementById('task-container');\n  taskListContainer.innerHTML = '';\n\n  currentProject.taskList.forEach((task) => {\n    const div = document.createElement('div');\n    div.classList.add('task-item');\n    div.innerHTML = `\n    <button class = 'task-complete-button'>X</button>\n    ${task.name}\n    <button class = 'task-details-button'>Details</button>\n    <button class = 'edit-task-button'>Edit</button>\n    ${task.dueDate}\n    <button class = 'delete-task-button'>Delete</button>\n    `;\n\n    taskListContainer.appendChild(div);\n\n    const deleteTaskbutton = div.querySelector('.delete-task-button');\n    deleteTaskbutton.addEventListener('click', () => {\n      currentProject.deleteTask(task);\n      renderTaskList();\n      console.log('clicked')\n    })\n  })\n}\n\nrenderTaskList();\nrenderProjectList();\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/logic.js":
+/*!******************************!*\
+  !*** ./src/scripts/logic.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Project: () => (/* binding */ Project),\n/* harmony export */   Task: () => (/* binding */ Task),\n/* harmony export */   projectManager: () => (/* binding */ projectManager)\n/* harmony export */ });\nclass ProjectManager {\n  constructor() {\n    this.allProjects = [];\n  }\n\n  createProject(name) {\n    const project = new Project(name);\n    this.allProjects.push(project);\n    return project;\n  }\n\n  deleteProject(project) {\n    const index = this.allProjects.indexOf(project);\n    if (index > -1) {\n      this.allProjects.splice(index, 1);\n    } else {\n      throw new Error('Project not found');\n    }\n  }\n}\n\nconst projectManager = new ProjectManager(); \n\nclass Project {\n  constructor(name) {\n    this.name = name;\n    this.taskList = [];\n  }\n\n  setName(newName) {\n    this.name = newName;\n  }\n\n  addTask(task) {\n    this.taskList.push(task);\n  }\n\n  deleteTask(task) {\n   const index = this.taskList.indexOf(task);\n   if (index > -1) {\n    this.taskList.splice(index, 1);\n   }\n   return this.taskList;\n  }\n}\n\nclass Task {\n  constructor(name, description, dueDate, priority) {\n    this.name = name;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority\n  }\n\n  editInfo(name, description, dueDate, priority) {\n    this.name = name;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority\n  }\n}\n\n//# sourceURL=webpack://todo-list/./src/scripts/logic.js?");
 
 /***/ })
 
@@ -181,18 +181,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -207,29 +195,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

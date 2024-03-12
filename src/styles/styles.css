@@ -1,3 +1,36 @@
-.red {
-  color: blue;
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 32px;
 }
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  background-color: lightpink;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+#project-container {
+  background-color: lightgreen;
+  height: 100vh;
+}
+
+#task-container {
+  background-color: lightblue;
+  height: 100vh;
+}
+
+.task-item,
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  margin-bottom: 1px;
+}
+
