@@ -45,16 +45,14 @@ export class Project {
 }
 
 export class Task {
-  constructor(name, description, dueDate, priority) {
+  constructor(name, dueDate, priority) {
     this.name = name;
-    this.description = description;
     this.dueDate = dueDate;
     this.priority = priority
   }
 
-  editTaskInfo(name, description, dueDate, priority) {
+  editTaskInfo(name, dueDate, priority) {
     this.name = name;
-    this.description = description;
     this.dueDate = dueDate;
     this.priority = priority
   }

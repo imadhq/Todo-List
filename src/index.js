@@ -4,10 +4,12 @@ import { projectManager, Project, Task } from './scripts/logic.js';
 import { format } from 'date-fns';
 
 const defaultProject = projectManager.createProject('Tasks');
-const task1 = new Task('Eat', 'desc', '2024-03-21', 'high');
-const task2 = new Task('Play', 'desc', '2024-04-15', 'medium');
+const task1 = new Task('Eat', '2024-03-21', 'high');
+const task2 = new Task('Sleep', '2024-04-15', 'medium');
+const task3 = new Task('Play', '2024-06-15', 'low');
 defaultProject.addTask(task1);
 defaultProject.addTask(task2);
+defaultProject.addTask(task3);
 
 let currentProject = defaultProject;
 
@@ -58,11 +60,11 @@ const renderTaskList = () => {
     const div = document.createElement('div');
     div.classList.add('task-item');
     div.innerHTML = `
-    <button class = 'task-complete-button'></button>
-    ${task.name}
-    <button class = 'task-details-button'>Details</button>
+    <span class='name'>${task.name}
+    </span>
+    <span class='date'>${format(new Date(task.dueDate), 'dd-MM')}
+    </span>
     <button class = 'edit-task-button'>Edit</button>
-    ${format(new Date(task.dueDate), 'dd-MM')}
     <button class = 'delete-task-button'>Delete</button>
     `;
 
@@ -120,9 +122,6 @@ const createModal = (task) => {
     <p><label for="task-title">Title:</label></p>
     <input type="text" id="task-title" class="text-input" value="${task.name}">
 
-    <p><label for="task-description">Description:</label></p>
-    <input type="text" id="task-description" class="text-input" value="${task.description}">
-
     <p><label for="due-date">Due Date:</label></p>
     <input type="date" id="due-date" class="due-date-input" value="${task.dueDate}">
 
@@ -154,23 +153,20 @@ const createModal = (task) => {
 
 function editTask(task, modal) {
   const title = modal.querySelector('#task-title').value;
-  const description = modal.querySelector('#task-description').value;
   const dueDate = modal.querySelector('#due-date').value;
   const priority = modal.querySelector('input[name="priority"]:checked').value;
 
-  task.editTaskInfo(title, description, dueDate, priority);
+  task.editTaskInfo(title, dueDate, priority);
 }
 
 function clearInputFields() {
   const modal = document.querySelector('.jsmodal');
   
   const title = modal.querySelector('#task-title');
-  const description = modal.querySelector('#task-description');
   const dueDate = modal.querySelector('#due-date');
   const lowPriority = modal.querySelector('#low-priority-radio');
 
   title.value = '';
-  description.value = '';
   dueDate.value = '';
   lowPriority.checked = true;
 }
@@ -184,9 +180,6 @@ const createNewTaskModal = (() => {
   <form>
     <p><label for="task-title">Title:</label></p>
     <input type="text" id="task-title" class="text-input">
-
-    <p><label for="task-description">Description:</label></p>
-    <input type="text" id="task-description" class="text-input">
 
     <p><label for="due-date">Due Date:</label></p>
     <input type="date" id="due-date" class="due-date-input">
@@ -236,7 +229,6 @@ newTaskSaveButton.addEventListener('click', (event) => {
 
   const modal = newTaskModal;
   const title = modal.querySelector('#task-title').value;
-  const description = modal.querySelector('#task-description').value;
   const dueDate = modal.querySelector('#due-date').value;
   const lowPriority = modal.querySelector('#low-priority-radio');
   const mediumPriority = modal.querySelector('#medium-priority-radio');
@@ -251,7 +243,7 @@ newTaskSaveButton.addEventListener('click', (event) => {
     selectedRadio = 'high';
   }
 
-  const newTask = new Task(title, description, dueDate, selectedRadio);
+  const newTask = new Task(title, dueDate, selectedRadio);
   currentProject.taskList.push(newTask);
   renderTaskList();
   modal.close();
@@ -288,6 +280,13 @@ const createNewProjectModal = (() => {
       renderProjectList();
       renderTaskList();
       modal.close();
+      modal.querySelector('#project-title').value = '';
+    })
+
+  modal.querySelector('.cancel-button')
+    .addEventListener('click', () => {
+      modal.close();
+      modal.querySelector('#project-title').value = '';
     })
 })();
 

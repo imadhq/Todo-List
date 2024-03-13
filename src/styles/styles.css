@@ -1,14 +1,27 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Open_Sans/static/OpenSans-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   width: 100vw;
   height: 100vh;
-  font-size: 32px;
+  font-size: 16px;
   margin: 0;
+  overflow: visible;
+  font-family: "Open Sans", sans-serif;
 }
 
 .title-container {
   display: flex;
   justify-content: space-around;
-  background-color: lightpink;
+  align-items: center;
+  background-color: rgb(50, 58, 69);
+  height: 70px;
+  font-size: 50px;
+  color: white;
 }
 
 #content {
@@ -17,21 +30,28 @@ body {
 }
 
 #project-container {
-  background-color: lightgreen;
+  background-color: rgb(56, 87, 117);
   height: 100vh;
 }
 
 #task-container {
-  background-color: lightblue;
+  background-color: rgb(90, 104, 124);
   height: 100vh;
 }
 
-.task-item,
-.project-item {
+.project-item,
+.task-item {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  border-bottom: 1px solid grey;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.507);
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.name {
+  width: 50%;
 }
 
 .low-priority {
@@ -44,4 +64,30 @@ body {
 
 .high-priority {
   border-left: 10px solid red;
+}
+
+.project-delete-button,
+.delete-task-button {
+  background-color: rgb(255, 95, 95);
+}
+
+.project-delete-button,
+.delete-task-button,
+.edit-task-button {
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+}
+
+
+.new-project-button,
+.new-task-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
 }
