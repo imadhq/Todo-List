@@ -1,6 +1,7 @@
 
 import './styles/styles.css';
 import { projectManager, Project, Task } from './scripts/logic.js';
+import { format } from 'date-fns';
 
 const defaultProject = projectManager.createProject('Tasks');
 const task1 = new Task('Eat', 'desc', '2024-03-21', 'high');
@@ -61,7 +62,7 @@ const renderTaskList = () => {
     ${task.name}
     <button class = 'task-details-button'>Details</button>
     <button class = 'edit-task-button'>Edit</button>
-    ${task.dueDate}
+    ${format(new Date(task.dueDate), 'dd-MM')}
     <button class = 'delete-task-button'>Delete</button>
     `;
 
