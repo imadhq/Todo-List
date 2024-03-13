@@ -2,25 +2,21 @@ import './styles/styles.css';
 import { projectManager, Project, Task } from './scripts/logic.js';
 import { format } from 'date-fns';
 
+window.addEventListener('DOMContentLoaded', () => {
+  loadDataFromLocalStorage();
+  renderProjectList();
+  renderTaskList();
+})
+
 const defaultProject = projectManager.createProject('Tasks');
+let currentProject = defaultProject;
+
 const task1 = new Task('Eat', '2024-03-21', 'high');
 const task2 = new Task('Sleep', '2024-04-15', 'medium');
 const task3 = new Task('Play', '2024-06-15', 'low');
 defaultProject.addTask(task1);
 defaultProject.addTask(task2);
 defaultProject.addTask(task3);
-
-const onePunch = projectManager.createProject('Workout');
-const task4 = new Task('100 Push Ups', '2024-03-21', 'high');
-const task5 = new Task('100 Sit Ups', '2024-04-15', 'medium');
-const task6 = new Task('100 Squats', '2024-06-15', 'low');
-const task7 = new Task('10 km Run', '2024-06-15', 'low');
-onePunch.addTask(task4);
-onePunch.addTask(task5);
-onePunch.addTask(task6);
-onePunch.addTask(task7);
-
-let currentProject = defaultProject;
 
 const renderProjectList = () => {
   const projectContainer = document.getElementById('project-container');
@@ -57,6 +53,7 @@ const renderProjectList = () => {
       if (index !== 0) {
         projectManager.deleteProject(project);
         currentProject = defaultProject;
+        saveDataToLocalStorage();
         renderProjectList();
         renderTaskList();
       } else {
@@ -64,7 +61,7 @@ const renderProjectList = () => {
       }
     })
   })
-}
+};
 
 const renderTaskList = () => {
   const taskListContainer = document.getElementById('task-container');
@@ -96,6 +93,7 @@ const renderTaskList = () => {
     const deleteTaskbutton = div.querySelector('.delete-task-button');
     deleteTaskbutton.addEventListener('click', () => {
       currentProject.deleteTask(task);
+      saveDataToLocalStorage();
       renderTaskList();
     })
 
@@ -105,7 +103,7 @@ const renderTaskList = () => {
       openEditModal(task);
     });
   })
-}
+};
 
 const openEditModal = (task) => {
   const modal = createModal(task);
@@ -115,6 +113,7 @@ const openEditModal = (task) => {
   applyChangesButton.addEventListener('click', (event) => {
     event.preventDefault();
     editTask(task, modal);
+    saveDataToLocalStorage();
     clearInputFields(modal);
     modal.close();
     renderTaskList();
@@ -125,7 +124,7 @@ const openEditModal = (task) => {
     event.preventDefault();
     modal.close();
   });
-}
+};
 
 const createModal = (task) => {
   const modal  = document.createElement('dialog');
@@ -165,7 +164,7 @@ const createModal = (task) => {
   return modal
 };
 
-function editTask(task, modal) {
+const editTask = (task, modal) => {
   const title = modal.querySelector('#task-title').value;
   const dueDate = modal.querySelector('#due-date').value;
   const priority = modal.querySelector('input[name="priority"]:checked').value;
@@ -174,10 +173,11 @@ function editTask(task, modal) {
     alert('Please fill in all fields');
   } else {
     task.editTaskInfo(title, dueDate, priority);
+    saveDataToLocalStorage();
   }
-}
+};
 
-function clearInputFields() {
+const clearInputFields = () => {
   const modal = document.querySelector('.jsmodal');
   const title = modal.querySelector('#task-title');
   const dueDate = modal.querySelector('#due-date');
@@ -186,7 +186,7 @@ function clearInputFields() {
   title.value = '';
   dueDate.value = '';
   lowPriority.checked = true;
-}
+};
 
 const createNewTaskModal = (() => {
   const modal  = document.createElement('dialog');
@@ -266,6 +266,7 @@ newTaskSaveButton.addEventListener('click', (event) => {
     alert ('Please fill in all fields');
   } else {
     currentProject.taskList.push(newTask);
+    saveDataToLocalStorage();
     renderTaskList();
     modal.close();
     clearInputFields();
@@ -302,6 +303,7 @@ const createNewProjectModal = (() => {
         alert ('Please enter a project name');
       } else {
         const newProject = projectManager.createProject(name);
+        saveDataToLocalStorage();
         currentProject = newProject;
         renderProjectList();
         renderTaskList();
@@ -329,6 +331,27 @@ const addNewProject = (() => {
     modal.showModal();
   })
 })();
+
+const saveDataToLocalStorage = () => {
+  localStorage.setItem('projectManagerData', JSON.stringify(projectManager.allProjects));
+};
+
+const loadDataFromLocalStorage = () => {
+  const storedData = localStorage.getItem('projectManagerData');
+  if (storedData) {
+    const parsedData = JSON.parse(storedData);
+    parsedData.forEach((projectData, index) => {
+      if (index !== 0) {
+      const project = new Project(projectData.name);
+      projectData.taskList.forEach(taskData => {
+        const task = new Task(taskData.name, taskData.dueDate, taskData.priority);
+        project.addTask(task);
+      });
+      projectManager.allProjects.push(project);
+      }
+    });
+  }
+};
 
 renderTaskList();
 renderProjectList();
