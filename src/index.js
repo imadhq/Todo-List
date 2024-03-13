@@ -1,4 +1,3 @@
-
 import './styles/styles.css';
 import { projectManager, Project, Task } from './scripts/logic.js';
 import { format } from 'date-fns';
@@ -20,7 +19,6 @@ onePunch.addTask(task4);
 onePunch.addTask(task5);
 onePunch.addTask(task6);
 onePunch.addTask(task7);
-
 
 let currentProject = defaultProject;
 
@@ -181,7 +179,6 @@ function editTask(task, modal) {
 
 function clearInputFields() {
   const modal = document.querySelector('.jsmodal');
-  
   const title = modal.querySelector('#task-title');
   const dueDate = modal.querySelector('#due-date');
   const lowPriority = modal.querySelector('#low-priority-radio');
