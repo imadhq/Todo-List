@@ -1,5 +1,6 @@
 # Todo-List
 This project is part of my learning journey with The Odin Project curriculum.
+- Live Preview - https://imadhq.github.io/Todo-List/
 
 **Project Overview**
 - This project is a simple to-do list application built for the web. Users can create, view, edit, and delete tasks organized within projects. The application utilizes local storage for data persistence and employs the date-fns API for date formatting.
