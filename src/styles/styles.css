@@ -79,7 +79,6 @@ body {
   border: none;
 }
 
-
 .new-project-button,
 .new-task-button {
   padding: 10px 20px;
@@ -88,6 +87,11 @@ body {
   font-weight: bold;
 }
 
-button:hover {
+button:hover,
+.project-name-span {
   cursor: pointer;
+}
+
+.current-project {
+  background-color: rgba(217, 222, 228, 0.527);
 }

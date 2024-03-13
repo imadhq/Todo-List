@@ -11,6 +11,17 @@ defaultProject.addTask(task1);
 defaultProject.addTask(task2);
 defaultProject.addTask(task3);
 
+const onePunch = projectManager.createProject('Workout');
+const task4 = new Task('100 Push Ups', '2024-03-21', 'high');
+const task5 = new Task('100 Sit Ups', '2024-04-15', 'medium');
+const task6 = new Task('100 Squats', '2024-06-15', 'low');
+const task7 = new Task('10 km Run', '2024-06-15', 'low');
+onePunch.addTask(task4);
+onePunch.addTask(task5);
+onePunch.addTask(task6);
+onePunch.addTask(task7);
+
+
 let currentProject = defaultProject;
 
 const renderProjectList = () => {
@@ -20,6 +31,10 @@ const renderProjectList = () => {
   projectManager.allProjects.forEach((project, index) => {
     const div = document.createElement('div');
     div.classList.add('project-item');
+
+    if (project === currentProject) {
+      div.classList.add('current-project');
+    }
 
     const span = document.createElement('span');
     span.classList.add('project-name-span');
@@ -36,6 +51,7 @@ const renderProjectList = () => {
     span.addEventListener('click', ()=> {
       currentProject = project;
       renderTaskList();
+      renderProjectList();
     })
 
     // DELETE PROJECT FROM PROJECT LIST
@@ -156,7 +172,11 @@ function editTask(task, modal) {
   const dueDate = modal.querySelector('#due-date').value;
   const priority = modal.querySelector('input[name="priority"]:checked').value;
 
-  task.editTaskInfo(title, dueDate, priority);
+  if (title === '' || dueDate === '') {
+    alert('Please fill in all fields');
+  } else {
+    task.editTaskInfo(title, dueDate, priority);
+  }
 }
 
 function clearInputFields() {
@@ -244,10 +264,15 @@ newTaskSaveButton.addEventListener('click', (event) => {
   }
 
   const newTask = new Task(title, dueDate, selectedRadio);
-  currentProject.taskList.push(newTask);
-  renderTaskList();
-  modal.close();
-  clearInputFields();
+
+  if (title === '' || dueDate === '') {
+    alert ('Please fill in all fields');
+  } else {
+    currentProject.taskList.push(newTask);
+    renderTaskList();
+    modal.close();
+    clearInputFields();
+  }
 })
 
 const allModal = document.querySelector('.jsmodal');
@@ -275,12 +300,17 @@ const createNewProjectModal = (() => {
   modal.querySelector('.js-add-project')
     .addEventListener('click', () => {
       const name = modal.querySelector('#project-title').value;
-      const newProject = projectManager.createProject(name);
-      currentProject = newProject;
-      renderProjectList();
-      renderTaskList();
-      modal.close();
-      modal.querySelector('#project-title').value = '';
+
+      if (name === '') {
+        alert ('Please enter a project name');
+      } else {
+        const newProject = projectManager.createProject(name);
+        currentProject = newProject;
+        renderProjectList();
+        renderTaskList();
+        modal.close();
+        modal.querySelector('#project-title').value = '';
+      }
     })
 
   modal.querySelector('.cancel-button')
